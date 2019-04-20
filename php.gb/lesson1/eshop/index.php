@@ -15,7 +15,7 @@ $year = $todayYear[year];
           crossorigin="anonymous">
     <link rel="stylesheet" href="styles/css/style.css">
 
-    <title><?php echo $title; ?></title>
+    <title><?=$title?></title>
 
 </head>
 
@@ -24,7 +24,7 @@ $year = $todayYear[year];
 <header class="header container-fluid">
     <div class="container headerInside">
         <div class="logo">
-            BRAN<span>D</span> <h1><?php echo $logo; ?></h1>
+            BRAN<span>D</span> <h1><?=$logo?></h1>
         </div>
         <form class="searchWrap">
             <div class="searchBrowse">
@@ -395,7 +395,7 @@ $year = $todayYear[year];
 <div class="container-fluid copyrightsWrap">
     <div class="container copyrightsContent">
         <div class="copyrightsLeft">
-            &copy; <?php echo $year; ?> Brand All Rights Reserved.
+            &copy; <?=$year?> Brand All Rights Reserved.
         </div>
         <div class="copyrightsRight">
             <a href=""><i class="fab fa-facebook-f"></i></a>
