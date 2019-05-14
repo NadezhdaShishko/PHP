@@ -1,6 +1,8 @@
 <?php
 
-define('HOST',"localhost");
-define('USER',"root");
-define('PASSWORD',"");
-define('DB',"gallery");
+return [
+    'db_host' => 'localhost',
+    'db_user' => 'root',
+    'db_pass' => '',
+    'db_name' => 'gallery'
+];
