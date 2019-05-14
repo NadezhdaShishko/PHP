@@ -1,21 +1,16 @@
 <?php
+include 'db.php';
 
-if($id = $_GET['id']){
-    $mysqli = mysqli_connect(HOST, USER, PASSWORD, DB) or die ("Невозможно подключиться к БД");
-    mysqli_query($mysqli, "SET CHARACTER SET 'utf8'");
+$query = mysqli_query($mysqli, "SELECT * FROM gallery.images ORDER BY views DESC");
+$sql = mysqli_query($mysqli, "UPDATE images SET views = views + 1 WHERE id = ''");
 
-    $id = (int) mysqli_real_escape_string($mysqli, $id);;
-    $query = mysqli_query($mysqli, "SELECT * FROM gallery.images WHERE id = {$id}");
-    mysqli_query($mysqli, "UPDATE images SET views = views + 1 WHERE id = $image[id]");
-
-    
-    $result = [];
-
+if(mysqli_num_rows($query) > 0){
     while ($row = mysqli_fetch_assoc($query)) {
-        $result[] = $row;
+        mysqli_query($mysqli, $sql.$row['id']);
+        echo '<div class="galleryItem">';
+        echo '<a href="viewsImage.php?id=' .$row['id'].'" target="_blank"><img class="image" src="' .$row['path'] . $row['name']. '" width="250" height="150" alt="' .$row['name']. '">';
+        echo '</div>';
     }
-
-    include 'viewsImage.php';
-
-    mysqli_close($mysqli);
 }
+
+mysqli_close($mysqli);
