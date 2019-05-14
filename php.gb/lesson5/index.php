@@ -1,8 +1,3 @@
-<?php
-require ('config.php');
-require ('db.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,15 +11,11 @@ require ('db.php');
     <div class="container">
         <div class="gallery">
 
-            <?php foreach ($result as $image): ?>
-                <div class="galleryItem">
-                    <a href="<views.php?id=<?=$image['id'] ?>" target="_blank">
-                        <img class="image" src="<?= $image['path'] . $image['name'] ?>" width="250" height="150" alt="<?= $result['name'] ?>">
-                        Просмотров: <?= $image['views'] ?>
-                    </a>
-                </div>
-            <?php endforeach; ?>
-            
+            <?php
+                $sqlTable = 'images';
+                include 'views.php';
+            ?>
+
         </div>
     </div>
 
