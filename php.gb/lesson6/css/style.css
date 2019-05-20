@@ -1,0 +1,46 @@
+.container {
+    width: 500px;
+    height: auto;
+    margin: 0 auto;
+    background: rgb(116, 153, 221);
+}
+
+h2,
+h3 {
+    text-align: center;
+}
+
+.calc1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+select {
+    height: 36px;
+}
+
+.result {
+    text-align: center;
+}
+
+.calc2 {
+    width: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input {
+    width: 400px;
+    height: 30px;
+    margin: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.operation {
+    width: 100px;
+    height: 30px;
+    font-size: 18px;
+}
