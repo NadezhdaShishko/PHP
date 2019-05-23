@@ -73,11 +73,14 @@ body {
   .newProductWrap {
     position: absolute;
     right: 30px;
-  }
-    .newProduct {
-      
-      border-radius: 5px;
 
+    .newProduct { 
+      border-radius: 5px;
+      padding: 15px;
+      background-color: $mainColor;
+      color: #fff;
+      border: none;
+    
       &:hover {
         font-weight: 600;
         background-color: #fff;
@@ -85,6 +88,54 @@ body {
         border: 2px solid $mainColor;
         cursor: pointer;
       }
+    }
+    
+  
+  }  
+}
+
+.addGoodsBtn {
+  position: relative;
+  margin-bottom: 20px;
+
+  .addProduct { 
+    border-radius: 5px;
+    padding: 15px;
+    background-color: $mainColor;
+    color: #fff;
+    border: none;
+    align-items: center;
+    position: absolute;
+    right: 30px;
+    bottom: 3px;
+
+    &:hover {
+      font-weight: 600;
+      background-color: #fff;
+      color: $mainColor;
+      border: 2px solid $mainColor;
+      cursor: pointer;
+    }
+  }
+
+  .clear { 
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+    color: $mainColor;
+    border: 2px solid $mainColor;
+    align-items: center;
+    position: absolute;
+    left: 70%;
+    bottom: 3px;
+
+    &:hover {
+      font-weight: 600;
+      background-color: $mainColor;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
   }
 }
 
@@ -1119,12 +1170,14 @@ body {
 
   .imageSlide {
     position: relative;
+    height: 777px;
+    background-color: $borderColor;
 
     img {
-      min-height: 777px;
+      height: 100%;
       width: 100%;
-      object-fit: cover;
-      object-position: center center;
+      object-fit: contain;
+      object-position: center;
     }
 
     .imageSlideArrowLeft,
@@ -1174,6 +1227,7 @@ body {
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+        text-transform: uppercase;
         color: $mainColor;
         font-size: 14px;
         font-weight: 900;
@@ -2061,4 +2115,5 @@ footer {
     }
   }
 }
+
 
