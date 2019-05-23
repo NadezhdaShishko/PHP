@@ -1,7 +1,7 @@
 <?php
-require './../engine/init.php';
-require ROOT_DIR.'/engine/db-goods.php';
-$title = 'Brand-Admin';
+ob_start();
+require './../engine/db-goods.php';
+$title = 'Brand-Admin-Main';
 ?>
 
 <!doctype html>
@@ -35,9 +35,9 @@ $title = 'Brand-Admin';
                 <i class="fas fa-search"></i>
             </button>
         </form>
-        <form class="newProductWrap" action="addGoods.php" method="">
-            <button class="newProduct" value="new product">
-                Add product
+        <form class="newProductWrap" action="addGoods.php" method="GET">
+            <button class="newProduct" type="submit" value="new product">
+                Add new product
             </button>
         </form>
     </div>
@@ -47,9 +47,7 @@ $title = 'Brand-Admin';
 require ROOT_DIR.'/templates/topNav.php';
 ?>
 
-<div class="container productsFeturedWrap">
-    <div class="topFetured">Fetured Items</div>
-    <div class="bottomFetured">Shop for items based on what we featured in this week</div>
+<div class="container">
     <div class="row productUnitContent">
         <?php 
         $result = allGoods($mysqli);
@@ -58,31 +56,29 @@ require ROOT_DIR.'/templates/topNav.php';
                 <div class="col-lg-3 col-md-4 col-sm-6 productUnit admin">
                     <div class="productUnitImgWrap">
                         <div class="productUnitBuy">
-                            <button class="editItem">
-                                Edit item
-                            </button>
-                            <button class="deleteItem">
-                                Delete the item
-                            </button>
+                            <form>
+                                <button class="editItem" type="submit" formmethod="get" formaction="editGoods.php" name="id" value="<?= $product['id'] ?>">
+                                    Edit item
+                                </button>
+                                <button class="deleteItem" type="submit" formmethod="get" formaction="deleteGoods.php">
+                                    Delete the item
+                                </button>
+                            </form>
                         </div>
                         <img src="../public/<?= $product['img'] ?>" alt="<?= $product['img'] ?>">
                     </div>
                     <div class="productName">
-                        <a href="sinlePage.php?id=<?= $product['id'] ?>" title="Нажмите для просмотра этого товара"> <?= $product['name'] ?> </a>
+                        <a href="sinlePage.php?id=<?= $product['id'] ?>" title="Нажмите для просмотра этого товара"> <?= $product['brand'].$product['name'] ?> </a>
                     </div>
                     <div class="productPrice">
                         $<?= $product['price'] ?>.00
                     </div>
                 </div>
             <?php endforeach ?>
-        <?}?>
+        <?php }?>
     </div>
 </div>
 
-<form>
-  <div class="form-group row">
-    <label for="name" class="col-sm-2 col-form-label">Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="name" placeholder="Name">
-    </div>
-</form>
+</body>
+
+</html>
