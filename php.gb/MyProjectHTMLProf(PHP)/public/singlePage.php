@@ -1,7 +1,6 @@
 <?php
+include './../engine/db-goods.php';
 if(isset($_GET[id])) {$id = (int)$_GET[id];}
-require './../engine/init.php';
-include ROOT_DIR.'/engine/db-goods.php';
 $item = getGoods($mysqli, $id);
 $title = 'Brand-Single Page';
 require ROOT_DIR.'/templates/header.php';
@@ -11,7 +10,7 @@ require ROOT_DIR.'/templates/navNewArrivals.php';
 
 <div class="imageSlideWrap">
     <div class="imageSlide">
-        <img src="images/slide.jpg" alt="">
+        <img src="<?= $item['img'] ?>" alt="<?= $item['img'] ?>">
         <div class="imageSlideArrowLeft">
             <i class="fas fa-chevron-left"></i>
         </div>
@@ -22,24 +21,20 @@ require ROOT_DIR.'/templates/navNewArrivals.php';
     <div class="container productDescWrap">
         <div class="topContentProductDesc">
             <div class="topSignProductDesc">
-                WOMEN COLLECTION
+                <?= $item['category'] ?>
             </div>
             <div class="bottomSignProductDesc">
-                MOSCHINO CHEAP AND CHIC
+                <?= $item['brand'].$item['name'] ?>
             </div>
             <div class="productDescText">
-                Compellingly actualize fully researched processes
-                before proactive outsourcing. Progressively syndicate
-                collaborative architectures before cutting-edge services.
-                Completely visualize parallel core competencies rather
-                than exceptional portals.
+                <?= $item['description'] ?>
             </div>
             <div class="materialProductDesc">
-                <div>MATERIAL: <span>COTTON</span></div>
-                <div>DESIGNER: <span>BINBURHAN</span></div>
+                <div>MATERIAL: <span><?= $item['material'] ?></span></div>
+                <div>DESIGNER: <span><?= $item['designer'] ?></span></div>
             </div>
             <div class="priceProductDesc">
-                $561
+                $<?= $item['price'] ?>
             </div>
         </div>
 
