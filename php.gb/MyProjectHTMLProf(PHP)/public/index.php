@@ -1,7 +1,8 @@
 <?php
-require './../engine/init.php';
+ob_start();
+require './../engine/db-goods.php';
 $title = 'Brand-Main';
-require '../public/main-goods.php';
+
 require ROOT_DIR.'/templates/header.php';
 require ROOT_DIR.'/templates/topNav.php';
 require ROOT_DIR.'/templates/banners.php';
