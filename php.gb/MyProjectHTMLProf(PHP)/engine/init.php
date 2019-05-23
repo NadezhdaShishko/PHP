@@ -2,8 +2,8 @@
 // echo 'ok';
 define('ROOT_DIR', __DIR__.'/../');
 
-// function myDB_connect()
-// {
+function myDB_connect()
+{
 
     $defaultConfig = require ROOT_DIR . 'config/config.default.php';
 
@@ -26,6 +26,6 @@ define('ROOT_DIR', __DIR__.'/../');
 
     );
 
-//     return $mysqli;
+    return $mysqli;
 
-// }
+}
