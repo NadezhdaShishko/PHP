@@ -24,10 +24,10 @@ require ROOT_DIR.'/templates/navNewArrivals.php';
                 <?= $item['category'] ?>
             </div>
             <div class="bottomSignProductDesc">
-                <?= $item['brand'].$item['name'] ?>
+                <?= $item['brand']. ' ' .$item['name_item'] ?>
             </div>
             <div class="productDescText">
-                <?= $item['description'] ?>
+                <?= $item['desc_item'] ?>
             </div>
             <div class="materialProductDesc">
                 <div>MATERIAL: <span><?= $item['material'] ?></span></div>
