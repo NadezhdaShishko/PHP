@@ -4,7 +4,7 @@
     
     <div class="row productUnitContent">
     <?php
-    $result = allGoods($mysqli);
+    $result = mainGoods($mysqli);
     if($result){
         foreach ($result as $product):?>
             <div class="col-lg-3 col-md-4 col-sm-6 productUnit">
@@ -18,7 +18,7 @@
                     <img src="./<?= $product['img'] ?>" alt="<?= $product['img'] ?>">
                 </div>
                 <div class="productName">
-                    <a href="../public/singlePage.php?id=<?= $product['id'] ?>" title="Нажмите для просмотра этого товара"> <?= $product['brand'].$product['name'] ?> </a>
+                    <a href="../public/singlePage.php?id=<?= $product['id'] ?>" title="Нажмите для просмотра этого товара"> <?= $product['brand'].$product['name_item'] ?> </a>
                 </div>
                 <div class="productPrice">
                     $<?= $product['price'] ?>.00
