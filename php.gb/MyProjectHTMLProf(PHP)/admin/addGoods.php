@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require './../engine/db-goods.php';
 $title = 'Admin-AddGoods';
 ?>
@@ -47,13 +48,13 @@ require ROOT_DIR.'/templates/topNav.php';
 ?>
 
 <div class="my-1 container" class="addGoods">
-    <form method="POST" action="./../engine/core-goods.php" enctype="multipart/form-data">
+    <form method="post" action="./../engine/core-goods.php" enctype="multipart/form-data">
         <fieldset>
             <legend>Add new product</legend>
             <div class="form-group row">
                 <label for="name" class="mt-1 col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" name="name" maxlenght="100" required class="form-control" id="name" placeholder="Name" maxlenght="100" required>
+                    <input type="text" name="name_item" maxlenght="100" required class="form-control" id="name" placeholder="Name" maxlenght="100" required>
                 </div>
 
                 <label for="category" class="mt-1 col-sm-2 col-form-label">Category</label>
@@ -88,7 +89,7 @@ require ROOT_DIR.'/templates/topNav.php';
 
                 <label for="description" class="col-sm-2 col-form-label">Description</label>
                 <div class="mt-1 col-sm-10">
-                    <textarea name="description" rows="5" required class="form-control" id="description" placeholder="Description"></textarea>
+                    <textarea name="desc_item" rows="5" required class="form-control" id="description" placeholder="Description"></textarea>
                 </div>
 
                 <label for="price" class="col-sm-2 col-form-label">Price</label>
@@ -103,10 +104,10 @@ require ROOT_DIR.'/templates/topNav.php';
             </div>
         </fieldset>
 
-        <p>Upload a picture in jpeg, png or gif format:</p>
-        <p class="addGoodsBtn"><input type="file" name="img" accept="image/jpeg, image/png, image/gif" required>
+        <p><strong>Upload a picture in jpeg, png or gif format:</strong></p>
+        <p class="addGoodsBtn"><input type="file" name="image" accept="image/jpeg, image/png, image/gif" required>
         <button class="clear" type="reset"> Clear </button>
-        <button class="addProduct" type="submit" name="submit"> Add product </button></p>
+        <input class="addProduct" type="submit" name="submit" value="Add product"></p>
 
     </form>
 </div>
