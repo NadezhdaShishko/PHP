@@ -49,7 +49,7 @@ require ROOT_DIR.'/templates/topNav.php';
 
 <div class="container">
     <div class="row productUnitContent">
-        <?php 
+        <?php
         $result = allGoods($mysqli);
         if($result){
             foreach ($result as $product):?>
@@ -60,15 +60,15 @@ require ROOT_DIR.'/templates/topNav.php';
                                 <button class="editItem" type="submit" formmethod="get" formaction="editGoods.php" name="id" value="<?= $product['id'] ?>">
                                     Edit item
                                 </button>
-                                <button class="deleteItem" type="submit" formmethod="get" formaction="deleteGoods.php">
+                                <button class="deleteItem" type="submit" formmethod="get" formaction="deleteGoods.php" name="id" value="<?= $product['id'] ?>">
                                     Delete the item
                                 </button>
                             </form>
                         </div>
-                        <img src="../public/<?= $product['img'] ?>" alt="<?= $product['img'] ?>">
+                        <img src="../public/<?= $product['img'] ?>" alt="<?= $product['img'] ?>" height="280" width="210">
                     </div>
                     <div class="productName">
-                        <a href="sinlePage.php?id=<?= $product['id'] ?>" title="Нажмите для просмотра этого товара"> <?= $product['brand'].$product['name'] ?> </a>
+                        <a href="sinlePage.php?id=<?= $product['id'] ?>" title="Нажмите для просмотра этого товара"> <?= $product['brand'].' ' .$product['name_item'] ?> </a>
                     </div>
                     <div class="productPrice">
                         $<?= $product['price'] ?>.00
